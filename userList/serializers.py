@@ -2,7 +2,7 @@ from rest_framework import serializers
 
 from .models import userWordList
 
-class UserListSerializer(serializers.HyperlinkedModelSerializer):
+class UserListSerializer(serializers.ModelSerializer):
     class Meta:
         model = userWordList
-        fields = ('word', 'definition')
+        fields = '__all__'

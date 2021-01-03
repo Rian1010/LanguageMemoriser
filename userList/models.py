@@ -1,8 +1,8 @@
 from django.db import models
 
 class userWordList(models.Model):
-    word = models.CharField(max_length=240, null=False, blank=False)
-    definition = models.CharField(max_length=240, null=False, blank=False)
+    word = models.CharField(max_length=240, null=False, blank=False, default='')
+    definition = models.CharField(max_length=240, null=False, blank=False, default='')
 
     verbose_name_plural = 'User Word Lists'
 

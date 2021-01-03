@@ -23,13 +23,16 @@ def apiOverview(request):
 def UserListViewSet(request):
     queryset = userWordList.objects.all()
     # .order_by('name')
+    # Serialise a list of objects from the queryset
     serializer_class = UserListSerializer(queryset, many=True)
+    print(serializer_class)
     return Response(serializer_class.data)
 
 @api_view(['GET'])
 def userListDetail(request, pk):
     words = userWordList.objects.get(id=pk)
     # .order_by('name')
+    # Return one object of the words
     serializer_class = UserListSerializer(words, many=False)
     return Response(serializer_class.data)
 
@@ -57,4 +60,4 @@ def userWordDelete(request, pk):
     word = userWordList.objects.get(id=pk)
     word.delete()
 
-    return Response("The word has been deleted")
+    return Response("The word has been successfully deleted")
